@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the number of data elements: ";
+    cin >> n;
+
+    double product = 1.0;
+    double N = 0.0;
+
+    cout << "Enter value of data elements and their frequencies : " << endl;
+    for (int i = 0; i<n; i++ ) {
+        double dataValue, frequency;
+        cout << "Data Value " << (i+1) << " : ";
+        cin >> dataValue;
+        cout << "Frequency " << (i+1) << " : ";
+        cin >> frequency;
+        product *= pow(dataValue, frequency);
+        N+= frequency;
+    }
+
+    double geometricMean = pow(product, 1.0/N);
+
+    cout << "Geometric Mean : " << geometricMean << endl;
+
+}
