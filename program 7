@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+
+{ int n ;
+  double var,std_dev,coeff_var;
+  int x[n], sum;
+  int snum=0;
+  cout<<"Enter number of data element :";
+  cin>>n;
+  
+  for (int i =0; i<n ;i++){
+      cout<<"Data element "<<i+1<<" : ";
+      cin>> x[i];
+      sum+=x[i];
+  }
+  
+  double mean = sum/n;
+  
+ for (int i =0; i<n ;i++){
+     snum+=pow (x[i]-mean ,2) ;
+  } 
+
+    var=snum/n;
+    std_dev=sqrt(var);
+    coeff_var=(std_dev/mean)*100;
+    cout<<"Standard deviation for series is :"<<std_dev<<endl;
+    cout<<"Variance for series is :"<<var<<endl;
+    cout<<"Coefficient for series is :"<<coeff_var<<"%"<<endl;
+    return 0;
+}
