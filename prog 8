@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+
+{ int n,N;
+  double var,std_dev,coeff_var;
+  double x[n],f[n];
+  double sum,snum=0;
+  cout<<"Enter number of data element :";
+  cin>>n;
+  
+  for (int i =0; i<n ;i++){
+      cout<<"Data element "<<i+1<<" : ";
+      cin>> x[i];
+      N=x[i];
+      cout<<"Frequency "<<i+1<<" : ";
+      cin>> f[i];
+      sum+=x[i]*f[i];
+  }
+  
+  double mean = sum/N;
+  
+ for (int i =0; i<n ;i++){
+     snum+=f[i]*pow (x[i]-mean ,2) ;
+  } 
+
+    var=snum/N;
+    std_dev=sqrt(var);
+    coeff_var=(std_dev/mean)*100;
+    cout<<"Standard deviation for series is :"<<std_dev<<endl;
+    cout<<"Variance for series is :"<<var<<endl;
+    cout<<"Coefficient for series is :"<<coeff_var<<"%"<<endl;
+    return 0;
+}
