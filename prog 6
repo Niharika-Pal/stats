@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declaration
+    int n, N = 0;
+    float ll[n],ul[n];
+    int f[n], cf[n];
+    float median ;
+    // Entering the number of elements
+    cout << "Enter the number of data elements: ";
+    cin >> n;
+    cout<<"NOTE : Data entered must be in the ascending order of magnitude!!!"<<endl;
+   
+  cout << "Enter the Lower Limit, Upper Limit, and Frequency for each interval: " << endl;
+  for (int i = 0; i < n; i++) {
+    cout << "Lower Limit " << i + 1 << " : ";
+    cin >> ll[i];
+    cout << "Upper Limit " << i + 1 << " : ";
+    cin >> ul[i];
+    cout << "Frequency " << i + 1 << " : ";
+    cin >> f[i];
+    N+= f[i];
+    cf[i] = N;
+    cout << "Cf " << i + 1 << " : " << cf[i] << endl;
+  }
+
+    float item = N / 2;
+    float low_lim,interval= 0;
+    float freq ,cum_freq;
+   
+    for (int i = 0; i < n; ++i) {
+        if (cf[i] >= item)// locating cf which is equal to or higher to N+1/2 th item
+        {   interval=ul[i]-ll[i];
+            freq=f[i];
+            cum_freq=cf[i]-f[i];
+            low_lim = ll[i];
+           
+            break;
+        }
+    }
+  float d = item - cum_freq;
+  median = low_lim +d/freq *interval;
+  cout<<"Median of the continuous series is :"<<median ;
+  return 0;
+}
