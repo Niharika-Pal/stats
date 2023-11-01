@@ -1,5 +1,5 @@
 #include <iostream>
-#include <climits>
+
 using namespace std;
 
 int main() {
@@ -8,14 +8,14 @@ int main() {
     int x[n], f[n], cf[n];
     
     // Entering the number of elements
-    cout << "Enter the number of elements: ";
+    cout << "Enter the number of data elements: ";
     cin >> n;
-    
+    cout<<"NOTE : You must enter the data element in either ascending or descending order !!!"<<endl;
    
     
     // Entering the elements, variables, and calculating CF
     for (int i = 0; i < n; ++i) {
-        cout << "Variable " << i + 1 << ": ";
+        cout << "Data element " << i + 1 << ": ";
         cin >> x[i];
         
         cout << "Frequency " << i + 1 << ": ";
@@ -25,19 +25,19 @@ int main() {
         cf[i] = N;
         cout << "CF " << i + 1 << ": " << cf[i] << endl;
     }
-    
-    double med = (N+1) / 2;
-   /* cout << "SUM: " << sf << endl;8*/
+    // calculating N+1/2 th item
+    double item = (N+1) / 2;
+   
     
     // Finding the median
     int median = 0;
     for (int i = 0; i < n; ++i) {
-        if (cf[i] >= med)
+        if (cf[i] >= item)// locating cf which is equal to or higher to N+1/2 th item
         {
             median = x[i];
             break;
         }
     }
-    cout << "Median: " << median << endl;
+    cout << "Median of the discrete series : " << median << endl;
     return 0;
 }
